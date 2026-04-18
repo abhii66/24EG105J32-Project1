@@ -112,6 +112,11 @@ function ArticleByID() {
   //post comment by user
   const addComment = async (commentObj) => {
     //add artcileId
+    //for empty cases.
+      if (!commentObj.comment || commentObj.comment.trim().length === 0) {
+        toast.error("Comment cannot be empty!")
+        return
+      }
     commentObj.articleId = article._id;
     console.log(commentObj);
     let res = await axios.put("https://two4eg105j32-project1.onrender.com/user-api/articles", commentObj, { withCredentials: true });
