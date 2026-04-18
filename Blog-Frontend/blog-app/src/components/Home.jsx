@@ -33,7 +33,7 @@ function Home() {
     const getArticles = async () => {
       setLoading(true);
       try {
-        let res = await axios.get("http://localhost:6677/user-api/articles", { withCredentials: true })
+        let res = await axios.get("https://two4eg105j32-project1.onrender.com/user-api/articles", { withCredentials: true })
         if (res.status === 200) {
           setArticles(res.data.payload)
         }

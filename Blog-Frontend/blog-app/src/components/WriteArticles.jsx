@@ -38,7 +38,7 @@ function WriteArticles() {
       //set loading true 
       setLoading(true)
         //make POST req to save new article
-        let res=await axios.post("http://localhost:6677/author-api/articles",articleObj,{withCredentials:true})
+        let res=await axios.post("https://two4eg105j32-project1.onrender.com/author-api/articles",articleObj,{withCredentials:true})
         //navigate
         if(res.status===201){
           navigate("/author-profile/articles")

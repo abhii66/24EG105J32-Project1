@@ -10,7 +10,7 @@ function UserList() {
     const getUsers = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:6677/admin-api/users/user", {
+        const res = await axios.get("https://two4eg105j32-project1.onrender.com/admin-api/users/user", {
           withCredentials: true,
         });
         if (res.status === 200) {
@@ -32,7 +32,7 @@ function UserList() {
 
     try {
       const res = await axios.patch(
-        "http://localhost:6677/admin-api/users",
+        "https://two4eg105j32-project1.onrender.com/admin-api/users",
         { userId, isUserActive: newStatus },
         { withCredentials: true }
       );

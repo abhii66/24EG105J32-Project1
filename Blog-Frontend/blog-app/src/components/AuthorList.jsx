@@ -10,7 +10,7 @@ function AuthorList() {
     const getAuthors = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:6677/admin-api/users/author", {
+        const res = await axios.get("https://two4eg105j32-project1.onrender.com/admin-api/users/author", {
           withCredentials: true,
         });
         if (res.status === 200) {
@@ -34,7 +34,7 @@ function AuthorList() {
 
     try {
       const res = await axios.patch(
-        "http://localhost:6677/admin-api/users",
+        "https://two4eg105j32-project1.onrender.com/admin-api/users",
         { userId: authorId, isUserActive: newStatus },
         { withCredentials: true }
       );
