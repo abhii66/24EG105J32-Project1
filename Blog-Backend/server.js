@@ -11,11 +11,20 @@ config()
 const app = exp()
 //body parser
 app.use(cors({
-    origin:[
-        'http://localhost:5173',
-        'https://24eg105j32-project-1.vercel.app'
-    ],
-    credentials:true
+    origin: function(origin, callback) {
+        const allowedOrigins = [
+            'http://localhost:5173',
+            'https://24eg105j32-project-1.vercel.app'
+        ];
+        
+        // allow all vercel preview URLs
+        if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
 }))
 app.use(exp.json())
 //cookie parser
