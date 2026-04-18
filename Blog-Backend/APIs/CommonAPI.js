@@ -79,10 +79,10 @@ commonApp.post('/users/login',async(req,res)=>{
         lastName:user.lastName,
     },process.env.SECRET_KEY,{expiresIn:"1hr"})
     //store it as httpOnly token
-    res.cookie("token",signedToken,{
-        httpOnly:true,
-        sameSite:"lax",
-        secure:false
+    res.cookie("token", signedToken, {
+        httpOnly: true,
+        sameSite: "none",  
+        secure: true       
     })
     let userObj=user.toObject()
     delete userObj.password
@@ -93,10 +93,10 @@ commonApp.post('/users/login',async(req,res)=>{
 //logout  route
 commonApp.get("/users/logout",(req,res)=>{
     //delete token from the cookie storage
-    res.clearCookie("token",{
-        httpOnly:true,
-        sameSite:"lax",
-        secure:false
+    res.clearCookie("token", {
+        httpOnly: true,
+        sameSite: "none",
+        secure: true
     })
     res.status(200).json({message:"Logout Success."})
 })
