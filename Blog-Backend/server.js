@@ -11,7 +11,7 @@ config()
 const app = exp()
 //body parser
 app.use(cors({
-    origin:['http://localhost:5173','https://clone-project01-cvraljpgd-abhiii966s-projects.vercel.app','https://24eg105j32-project-1.vercel.app'],
+    origin:['http://localhost:5173','https://24eg105j32-project-1.vercel.app'],
     credentials:true
 }))
 app.use(exp.json())
@@ -23,10 +23,12 @@ app.use('/admin-api',adminApp)
 app.use('/common-api',commonApp)
 const port=process.env.PORT
 //connect to db
+// console.log("ENV:", process.env.MONGO_URI);
 async function connectDB(){
     try{
         await connect(process.env.DB_URL);
         console.log("DB connection success.")
+        
 
         //start server
         app.listen(port,()=>console.log(`server on port ${port}...`))
