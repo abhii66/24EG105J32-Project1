@@ -11,7 +11,10 @@ config()
 const app = exp()
 //body parser
 app.use(cors({
-    origin:['http://localhost:5173','https://24eg105j32-project-1.vercel.app'],
+    origin:[
+        'http://localhost:5173',
+        'https://24eg105j32-project-1.vercel.app'
+    ],
     credentials:true
 }))
 app.use(exp.json())
